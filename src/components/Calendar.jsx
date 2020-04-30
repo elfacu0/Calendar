@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import moment from 'moment';
+import DayContainer from './DayContainer';
 
 const Container = styled.div`
     width: 80%;
@@ -19,19 +20,6 @@ const Wrapper = styled.div`
     grid-template-rows: auto auto auto auto auto auto auto;
 `;
 
-const Day = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-    border: 1px solid transparent;
-    background: ${(props) => (props.today === true ? '#296d98' : '')};
-    &:hover {
-        border: 1px solid white;
-        cursor: pointer;
-    }
-`;
-
 const Controllers = styled.div`
     width: 80%;
     height: 5%;
@@ -45,27 +33,17 @@ const ChangeMonth = styled.button`
     height: 100%;
 `;
 
-const DayWrapper = styled.div`
-    width: 100%;
-    height: 70%;
+const DayName = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-`;
-
-const EventsContainer = styled.div`
-    width: 100%;
-    height: 30%;
-    display: flex;
-    // visibility: hidden;
-    align-items: center;
-    justify-content: center;
-`;
-
-const Event = styled.div`
-    width: 15%;
-    height: 50%;
-    background: red;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    background: ${(props) => (props.today === true ? '#296d98' : '')};
+    &:hover {
+        border: 1px solid white;
+        cursor: pointer;
+    }
 `;
 
 const date = new Date();
@@ -87,12 +65,9 @@ let year = date.getFullYear();
 let month = date.getMonth() + 1;
 const TODAY = `${year}-${month}-${date.getDate()}`;
 
-function changeMonth() {
-    console.log(year, month);
+export function changeMonth(year, month) {
     let daysInMonth = [];
     function getFirstDayOfMonth() {
-        console.log(month, year);
-
         let firstDay = moment(`${year}-${month}`, 'YYYY-MM')
             .startOf('month')
             .format('d');
@@ -157,23 +132,17 @@ const Calendar = () => {
             </h1>
             <Wrapper>
                 {weekdayshort.map((day) => {
-                    return <Day key={day}>{day}</Day>;
+                    return <DayName key={day}>{day}</DayName>;
                 })}
                 {daysInMonth.map((day, i) => {
                     return (
-                        <Day
-                            today={`${year}-${month}-${day}` === TODAY}
+                        <DayContainer
+                            year={year}
+                            month={month}
+                            day={day}
+                            TODAY={TODAY}
                             key={day || i * -1}
-                        >
-                            <DayWrapper>
-                                <span>{day}</span>
-                            </DayWrapper>
-                            {day && (
-                                <EventsContainer>
-                                    <Event></Event>
-                                </EventsContainer>
-                            )}
-                        </Day>
+                        />
                     );
                 })}
             </Wrapper>

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import Calendar from './components/Calendar';
+import AllEvents from './components/AllEvents';
 // import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 // import { CacheProvider } from '../CacheContext';
+import Login from './components/Login';
 const Wrapper = styled.div`
     min-height: 100vh;
     background: #222331;
@@ -12,25 +14,15 @@ const Wrapper = styled.div`
     flex-direction: column;
 `;
 
-const Header = styled.div`
-    width: 100%;
-    background: #262154;
-    display: flex;
-    padding: 1em;
-    box-sizing: border-box;
-`;
-
-const Layout = styled.div`
-    padding: 2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`;
-
 function App() {
+    const [user, setUser] = useState(localStorage.getItem('user'));
+    if (!user) {
+        return <Login setUser={setUser} />;
+    }
     return (
         <Wrapper>
-            <Calendar></Calendar>
+            {/* <Calendar></Calendar> */}
+            <AllEvents />
         </Wrapper>
     );
 }
