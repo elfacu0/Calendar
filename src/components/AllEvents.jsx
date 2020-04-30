@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { changeMonth } from './Calendar';
-import NoteIcon from './NoteIcon';
-import { css, cx } from 'emotion';
 
 const Wrapper = styled.div`
     height: 100vh;
@@ -37,6 +35,10 @@ const DayHeader = styled.div`
 `;
 const DayEvents = styled.div`
     height: 70%;
+`;
+const Event = styled.img`
+    height: 70px;
+    width: 70px;
 `;
 
 const date = new Date();
@@ -83,12 +85,7 @@ const AllEvents = () => {
                                     {dayNames[i % 7]} - {day}
                                 </DayHeader>
                                 <DayEvents>
-                                    <NoteIcon
-                                        className={css`
-                                            width: 40px;
-                                            height: 40px;
-                                        `}
-                                    />
+                                    <Event src="https://image.flaticon.com/icons/png/512/2829/2829971.png" />
                                 </DayEvents>
                             </Day>
                         );
