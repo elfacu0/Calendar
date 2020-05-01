@@ -21,8 +21,8 @@ function App() {
     }
     return (
         <Wrapper>
-            {/* <Calendar></Calendar> */}
-            <AllEvents />
+            <Calendar></Calendar>
+            {/* <AllEvents /> */}
         </Wrapper>
     );
 }

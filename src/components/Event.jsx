@@ -104,7 +104,14 @@ const Event = (props) => {
                             <User key={attendee.displayName}>
                                 <P>{attendee.displayName}</P>
                                 <P>{attendee.email}</P>
-                                <P>Response: {attendee.responseStatus}</P>
+                                <P>
+                                    Response:{' '}
+                                    {attendee.responseStatus
+                                        ? 'Positive'
+                                        : attendee.responseStatus === null
+                                        ? 'N/a'
+                                        : 'Negative'}
+                                </P>
                             </User>
                         );
                     })}
