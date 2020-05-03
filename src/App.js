@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import Calendar from './components/Calendar';
-import AllEvents from './components/AllEvents';
 // import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 // import { CacheProvider } from '../CacheContext';
 import Login from './components/Login';

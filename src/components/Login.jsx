@@ -42,7 +42,10 @@ const Login = (props) => {
                     type="submit"
                     value="Submit"
                     onClick={() => {
-                        localStorage.setItem('user', { name, email });
+                        localStorage.setItem(
+                            'user',
+                            JSON.stringify({ name: name, email: email })
+                        );
                         props.setUser({ name, email });
                     }}
                 >
