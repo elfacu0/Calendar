@@ -10,7 +10,6 @@ export async function addEvent(props) {
         requestOptions
     );
     const data = await response.json();
-    console.log(data);
     return data;
 }
 
@@ -29,8 +28,6 @@ export async function deleteEvent(id) {
         requestOptions
     );
     const data = await response.json();
-    console.log(id);
-
     return data;
 }
 
@@ -47,7 +44,6 @@ export async function addAttendee(props) {
         requestOptions
     );
     const data = await response.json();
-    console.log(data);
     return data;
 }
 
@@ -84,6 +80,5 @@ export async function modifyEvent(props) {
         requestOptions
     );
     const data = await response.json();
-    console.log(data);
     return data;
 }
