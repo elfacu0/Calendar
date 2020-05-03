@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 const Container = styled.div`
     color: white;
     max-width: 400px;
-    background: ${(props) => props.background || '#23232b'};
+    background: #23232b;
     padding: 20px;
     border-radius = 10px;
     display: flex;
@@ -52,7 +52,7 @@ const Description = styled.div`
 `;
 
 const User = styled.div`
-    background: #444444;
+    background: #6c757d;
     padding: 5px;
     border-radius: 5px;
     display: flex;
@@ -66,7 +66,7 @@ const Attendees = styled.div`
 `;
 
 const P = styled.p`
-    margin-bottom: 8px;
+    margin-bottom: 2px;
 `;
 
 const Attendance = styled.div``;
