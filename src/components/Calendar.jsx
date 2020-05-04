@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Alert } from 'react-bootstrap';
+import { Alert, Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from '@emotion/styled';
 import moment from 'moment';
@@ -13,6 +13,12 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+`;
+
+const LoadingContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 `;
 
 const Header = styled.div`
@@ -107,12 +113,14 @@ const Calendar = (props) => {
     const [daysInMonth, setDaysInMonth] = useState(changeMonth());
     const [allEvents, setAllEvents] = useState([]);
     const [showFetchError, setShowFetchError] = useState(false);
+    const [fetchingData, setFetchingData] = useState(true);
 
     async function getData() {
         try {
             const data = await getEvents();
             setAllEvents(data);
             setShowFetchError(false);
+            setFetchingData(false);
             console.log('GETTING DATA FROM CALENDAR');
         } catch (err) {
             console.log(err);
@@ -128,6 +136,16 @@ const Calendar = (props) => {
     let weekdayshort = moment.weekdaysShort();
     return (
         <Container>
+            {fetchingData && (
+                <Alert key="fetching" variant="warning">
+                    <LoadingContainer>
+                        <h2>Fetching Data</h2>
+                        <Spinner animation="grow" size="sm" />
+                        <Spinner animation="grow" size="sm" />
+                        <Spinner animation="grow" size="sm" />
+                    </LoadingContainer>
+                </Alert>
+            )}
             {showFetchError && (
                 <Alert
                     variant="danger"

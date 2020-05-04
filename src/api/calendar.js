@@ -2,7 +2,6 @@ const BASE_URL = 'https://evening-springs-90377.herokuapp.com';
 
 export async function addEvent(props) {
     // POST request using fetch with async/await
-    console.log(props);
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -33,7 +32,6 @@ export async function deleteEvent(id) {
 
 export async function addAttendee(props) {
     const { _id, attendee } = props;
-    console.log(attendee);
     const requestOptions = {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },

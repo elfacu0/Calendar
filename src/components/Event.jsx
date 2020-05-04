@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Col } from 'react-bootstrap';
+import { Form, Button, Col, OverlayTrigger, Popover } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from '@emotion/styled';
 import {
@@ -140,15 +140,33 @@ const Event = (props) => {
                     )}
 
                     {email === creator.email && (
-                        <Button
-                            variant="danger"
-                            onClick={async () => {
-                                await deleteEvent(_id);
-                                props.getEvents();
-                            }}
-                        >
-                            DELETE
-                        </Button>
+                        <>
+                            <OverlayTrigger
+                                trigger="click"
+                                placement="bottom"
+                                rootClose={true}
+                                overlay={
+                                    <Popover id={`popover-positioned-bottom`}>
+                                        <Popover.Title as="h3">
+                                            Are you sure?
+                                        </Popover.Title>
+                                        <Popover.Content>
+                                            <Button
+                                                variant="danger"
+                                                onClick={async () => {
+                                                    await deleteEvent(_id);
+                                                    props.getEvents();
+                                                }}
+                                            >
+                                                YES
+                                            </Button>
+                                        </Popover.Content>
+                                    </Popover>
+                                }
+                            >
+                                <Button variant="danger">DELETE</Button>
+                            </OverlayTrigger>{' '}
+                        </>
                     )}
                     {email === creator.email && (
                         <Button
@@ -239,7 +257,9 @@ const Event = (props) => {
                 <Attendees>
                     {attendees.map((attendee) => {
                         return (
-                            <User key={attendee.displayName}>
+                            <User
+                                key={`${attendee.displayName}-${attendee.email}`}
+                            >
                                 <P>{attendee.displayName}</P>
                                 <P>{attendee.email}</P>
                                 <P>

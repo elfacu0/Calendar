@@ -27,13 +27,12 @@ const CreateEvent = (props) => {
     let { year, month, day } = props;
     month = month < 10 ? '0' + month : month;
     day = day < 10 ? '0' + day : day;
+    const start = new Date(`${year}-${month}-${day}`);
     const [summary, setSummary] = useState('');
     const [color, setColor] = useState('');
     const [description, setDescription] = useState('');
     const [end, setEndDate] = useState(new Date());
-    const start = new Date(`${year}-${month}-${day}`);
     const { name, email } = props.user;
-    console.log(props);
 
     const creator = {
         id: 10,
