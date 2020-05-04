@@ -1,20 +1,20 @@
+const BASE_URL = 'https://evening-springs-90377.herokuapp.com';
+
 export async function addEvent(props) {
     // POST request using fetch with async/await
+    console.log(props);
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...props }),
     };
-    const response = await fetch(
-        'http://localhost:5000/addEvent',
-        requestOptions
-    );
+    const response = await fetch(`${BASE_URL}/addEvent`, requestOptions);
     const data = await response.json();
     return data;
 }
 
 export async function getEvents() {
-    const response = await fetch('http://localhost:5000/getEvents');
+    const response = await fetch(`${BASE_URL}/getEvents`);
     const data = await response.json();
     return data;
 }
@@ -24,7 +24,7 @@ export async function deleteEvent(id) {
         method: 'DELETE',
     };
     const response = await fetch(
-        `http://localhost:5000/deleteEvent/${id}`,
+        `${BASE_URL}/deleteEvent/${id}`,
         requestOptions
     );
     const data = await response.json();
@@ -40,7 +40,7 @@ export async function addAttendee(props) {
         body: JSON.stringify(attendee),
     };
     const response = await fetch(
-        `http://localhost:5000/addAttendee/${_id}`,
+        `${BASE_URL}/addAttendee/${_id}`,
         requestOptions
     );
     const data = await response.json();
@@ -55,7 +55,7 @@ export async function changeAttendeeResponse(props) {
         body: JSON.stringify(attendee),
     };
     const response = await fetch(
-        `http://localhost:5000/updateResponseStatus/${_id}`,
+        `${BASE_URL}/updateResponseStatus/${_id}`,
         requestOptions
     );
     const data = await response.json();
@@ -76,7 +76,7 @@ export async function modifyEvent(props) {
         }),
     };
     const response = await fetch(
-        `http://localhost:5000/modifyEvent/${_id}`,
+        `${BASE_URL}/modifyEvent/${_id}`,
         requestOptions
     );
     const data = await response.json();

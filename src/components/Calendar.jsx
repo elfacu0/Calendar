@@ -103,7 +103,7 @@ export function changeMonth(year, month) {
     return daysInMonth;
 }
 
-const Calendar = () => {
+const Calendar = (props) => {
     const [daysInMonth, setDaysInMonth] = useState(changeMonth());
     const [allEvents, setAllEvents] = useState([]);
     const [showFetchError, setShowFetchError] = useState(false);
@@ -173,6 +173,7 @@ const Calendar = () => {
                 {daysInMonth.map((day, i) => {
                     return (
                         <DayContainer
+                            user={props.user}
                             year={year}
                             month={month}
                             day={day}

@@ -23,8 +23,6 @@ const Container = styled.div`
     overflow: auto;
 `;
 
-const { name, email } = JSON.parse(localStorage.getItem('user'));
-
 const CreateEvent = (props) => {
     let { year, month, day } = props;
     month = month < 10 ? '0' + month : month;
@@ -34,6 +32,9 @@ const CreateEvent = (props) => {
     const [description, setDescription] = useState('');
     const [end, setEndDate] = useState(new Date());
     const start = new Date(`${year}-${month}-${day}`);
+    const { name, email } = props.user;
+    console.log(props);
+
     const creator = {
         id: 10,
         email: email,

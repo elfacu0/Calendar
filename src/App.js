@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import Calendar from './components/Calendar';
-// import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
-// import { CacheProvider } from '../CacheContext';
 import Login from './components/Login';
 const Wrapper = styled.div`
     min-height: 100vh;
@@ -20,8 +18,7 @@ function App() {
     }
     return (
         <Wrapper>
-            <Calendar></Calendar>
-            {/* <AllEvents /> */}
+            <Calendar user={JSON.parse(user)} />
         </Wrapper>
     );
 }

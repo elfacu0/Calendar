@@ -136,6 +136,7 @@ const DayContainer = (props) => {
                                     return (
                                         <Carousel.Item key={event._id}>
                                             <Event
+                                                user={props.user}
                                                 event={event}
                                                 getEvents={props.getEvents}
                                             />
@@ -150,6 +151,7 @@ const DayContainer = (props) => {
                                     month={month}
                                     day={day}
                                     getEvents={props.getEvents}
+                                    user={props.user}
                                 />
                             </Carousel.Item>
                         </Carousel>

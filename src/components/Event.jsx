@@ -70,9 +70,9 @@ const P = styled.p`
 `;
 
 const Attendance = styled.div``;
-const { name, email } = JSON.parse(localStorage.getItem('user'));
 
 const Event = (props) => {
+    const { name, email } = props.user;
     const {
         summary,
         created,
