@@ -27,11 +27,11 @@ const CreateEvent = (props) => {
     let { year, month, day } = props;
     month = month < 10 ? '0' + month : month;
     day = day < 10 ? '0' + day : day;
-    const start = new Date(`${year}-${month}-${day}`);
+    const start = `${year}-${month}-${day}`;
     const [summary, setSummary] = useState('');
     const [color, setColor] = useState('');
     const [description, setDescription] = useState('');
-    const [end, setEndDate] = useState(new Date());
+    const [end, setEndDate] = useState(new Date(start));
     const { name, email } = props.user;
 
     const creator = {
@@ -49,7 +49,7 @@ const CreateEvent = (props) => {
             color,
             description,
             end: end,
-            start: start,
+            start: new Date(start),
         });
         props.getEvents();
     };
@@ -91,7 +91,8 @@ const CreateEvent = (props) => {
                         <br></br>
                         <input
                             type="date"
-                            min={`${year}-${month}-${day}`}
+                            min={start}
+                            value={start}
                             onChange={(e) => setEndDate(e.target.value)}
                         />
                     </Form.Group>
