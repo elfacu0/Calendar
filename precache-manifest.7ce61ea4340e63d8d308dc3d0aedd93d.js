@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f77101ec83d67bf229e3ede7379ff538",
+    "revision": "ec0aea13d121e23ba4a3e9e99d468f76",
     "url": "/Calendar/index.html"
   },
   {
-    "revision": "76e770ab85170105fd4d",
+    "revision": "21afd2cc513e4d1bb6e1",
     "url": "/Calendar/static/css/2.69121389.chunk.css"
   },
   {
-    "revision": "fe8efb6e7cc74c20e0a1",
+    "revision": "1533f1610965672f6717",
     "url": "/Calendar/static/css/main.b6cfe0af.chunk.css"
   },
   {
-    "revision": "76e770ab85170105fd4d",
-    "url": "/Calendar/static/js/2.a9d5c349.chunk.js"
+    "revision": "21afd2cc513e4d1bb6e1",
+    "url": "/Calendar/static/js/2.1f92c6bb.chunk.js"
   },
   {
     "revision": "5ac48c47bb3912b14c2d8de4f56d5ae8",
-    "url": "/Calendar/static/js/2.a9d5c349.chunk.js.LICENSE.txt"
+    "url": "/Calendar/static/js/2.1f92c6bb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fe8efb6e7cc74c20e0a1",
-    "url": "/Calendar/static/js/main.416cbf1e.chunk.js"
+    "revision": "1533f1610965672f6717",
+    "url": "/Calendar/static/js/main.4b04a02a.chunk.js"
   },
   {
     "revision": "7235fbc554159fe53f33",
