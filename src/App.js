@@ -12,13 +12,13 @@ const Wrapper = styled.div`
 `;
 
 function App() {
-    const [user, setUser] = useState(localStorage.getItem('user'));
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
     if (!user) {
         return <Login setUser={setUser} />;
     }
     return (
         <Wrapper>
-            <Calendar user={JSON.parse(user)} />
+            <Calendar user={user} />
         </Wrapper>
     );
 }
