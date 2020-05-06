@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Form, Col, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Wrapper = styled.div`
     height: 100vh;
@@ -11,46 +13,51 @@ const Wrapper = styled.div`
     align-items: center;
 `;
 
-const Form = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
 let name = '';
 let email = '';
 
 const Login = (props) => {
     return (
         <Wrapper>
-            <Form>
-                Name:
-                <input
-                    type="text"
-                    name="name"
-                    onChange={(e) => {
-                        name = e.target.value;
-                    }}
-                />
-                Email:
-                <input
-                    type="text"
-                    name="Email"
-                    onChange={(e) => {
-                        email = e.target.value;
-                    }}
-                />
-                <button
-                    type="submit"
-                    value="Submit"
-                    onClick={() => {
-                        localStorage.setItem(
-                            'user',
-                            JSON.stringify({ name: name, email: email })
-                        );
-                        props.setUser({ name, email });
-                    }}
-                >
-                    Submit
-                </button>
+            <Form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    localStorage.setItem(
+                        'user',
+                        JSON.stringify({ name: name, email: email })
+                    );
+                    props.setUser({ name, email });
+                }}
+            >
+                <Form.Group as={Col} controlId="formName">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                        onChange={(e) => {
+                            name = e.target.value;
+                        }}
+                        required
+                        type="text"
+                        placeholder="Name"
+                    />
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridEmail">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                        onChange={(e) => {
+                            email = e.target.value;
+                        }}
+                        required
+                        type="email"
+                        placeholder="Enter email"
+                    />
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formSubmit">
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form.Group>
             </Form>
         </Wrapper>
     );
