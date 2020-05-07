@@ -38,6 +38,7 @@ const Login = (props) => {
                         required
                         type="text"
                         placeholder="Name"
+                        name="name"
                     />
                 </Form.Group>
 
@@ -50,6 +51,7 @@ const Login = (props) => {
                         required
                         type="email"
                         placeholder="Enter email"
+                        name="email"
                     />
                 </Form.Group>
 

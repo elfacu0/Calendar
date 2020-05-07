@@ -60,7 +60,7 @@ const CreateEvent = (props) => {
                 <h1>Create New Event</h1>
                 <Form onSubmit={sendForm}>
                     <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
+                        <Form.Group as={Col} controlId="formSummary">
                             <Form.Label>Summary</Form.Label>
                             <Form.Control
                                 required
@@ -69,7 +69,7 @@ const CreateEvent = (props) => {
                             />
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridPassword">
+                        <Form.Group as={Col} controlId="formColor">
                             <Form.Label>Color</Form.Label>
                             <Form.Control
                                 placeholder="#FF00FF"
@@ -77,7 +77,7 @@ const CreateEvent = (props) => {
                             />
                         </Form.Group>
                     </Form.Row>
-                    <Form.Group controlId="formGridAddress1">
+                    <Form.Group controlId="formDescription">
                         <Form.Label>Description</Form.Label>
                         <Form.Control
                             required
@@ -86,7 +86,7 @@ const CreateEvent = (props) => {
                         />
                     </Form.Group>
 
-                    <Form.Group controlId="formGridAddress2">
+                    <Form.Group controlId="formEndDate">
                         <Form.Label>End Date</Form.Label>
                         <br></br>
                         <input
