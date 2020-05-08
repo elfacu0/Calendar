@@ -4,6 +4,7 @@ import { render, cleanup } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import CreateEvent from '../CreateEvent';
 import { shallow, mount } from 'enzyme';
+import * as m from '../../api/calendar';
 
 afterEach(cleanup);
 it('renders without crashing', () => {
@@ -22,11 +23,13 @@ it('test createEvent with no data (fail)', () => {
     );
     expect(wrapper.find('input').length).toBeGreaterThanOrEqual(4);
     wrapper.find('button').simulate('click');
-    expect(mockOnSubmit.preventDefault).toBeCalledTimes(0);
+
+    m.addEvent = jest.fn();
+    expect(m.addEvent).toBeCalledTimes(0);
 });
 
 it('test sucessful createEvent', () => {
-    const mockGetEvents = false;
+    const mockGetEvents = jest.fn();
     const mockOnSubmit = { preventDefault: jest.fn() };
     const dataFake = { name: 'User', email: 'K@gmail.com' };
     const wrapper = mount(
@@ -44,6 +47,7 @@ it('test sucessful createEvent', () => {
     descriptionInput.simulate('change');
     expect(descriptionInput.value).toBe('aodlsadas');
 
+    m.addEvent = jest.fn();
     wrapper.find('form').simulate('submit', mockOnSubmit);
-    expect(mockOnSubmit.preventDefault).toBeCalledTimes(1);
+    expect(m.addEvent).toBeCalledTimes(1);
 });
