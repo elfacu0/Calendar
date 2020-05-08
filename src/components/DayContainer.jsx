@@ -11,6 +11,7 @@ const Day = styled.div`
     align-items: center;
     box-sizing: border-box;
     border: 1px solid transparent;
+    background: ${(props) => (props.today ? '#00D0C0' : '')};
     &:hover {
         border: 1px solid white;
         cursor: pointer;
