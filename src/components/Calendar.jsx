@@ -13,6 +13,9 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    @media (max-width: 425px) {
+        width: 100%;
+    }
 `;
 
 const LoadingContainer = styled.div`
@@ -30,6 +33,8 @@ const Header = styled.div`
 `;
 
 const ChangeMonth = styled.img`
+    min-width: 35px;
+    max-width: 70px;
     width: 8%;
     cursor: pointer;
     transition-property: -moz-filter, -ms-filter, -o-filter, -webkit-filter,

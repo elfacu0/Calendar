@@ -17,7 +17,7 @@ const Container = styled.div`
     max-width: 400px;
     background: #23232b;
     padding: 20px;
-    border-radius = 10px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     overflow: auto;

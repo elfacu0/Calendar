@@ -2,7 +2,7 @@
 
 exports[`renders basic calendar without components 1`] = `
 <div
-  className="css-o60k28"
+  className="css-ped4l1"
 >
   <div
     className="fade alert alert-warning show"
